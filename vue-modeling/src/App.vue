@@ -1,7 +1,13 @@
 <template>
   
   <h1>Archakov blog</h1>
-  <Myhello  />
+  <Myhello title="Mersedez" :price="3000" :isAdded="true">
+    <button>Добавить</button>
+  </Myhello>
+  <Myhello />
+  <Myhello />
+  <Myhello />
+  <Myhello />
 </template>
 
 <script setup>
