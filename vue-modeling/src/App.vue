@@ -1,13 +1,9 @@
 <template>
   
-  <h1>Archakov blog</h1>
-  <Myhello title="Mersedez" :price="3000" :isAdded="true">
-    <button>Добавить</button>
-  </Myhello>
-  <Myhello />
-  <Myhello />
-  <Myhello />
-  <Myhello />
+
+  <div class="bg-white w-4/5 m-auto h-screen rounded-xl">Archakov blog</div>
+  
+
 </template>
 
 <script setup>

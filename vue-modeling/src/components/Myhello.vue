@@ -22,9 +22,13 @@ console.log(props)
 
 </template>
 
+
+
+
+
 <style scoped> /*scoped */
 .product{
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(255, 0, 0);
     padding: 10px;
     margin-bottom:10px;
 }
