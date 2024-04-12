@@ -8,7 +8,7 @@ html{
 
 body{
     
-background-color: #000000;
+background-color: #5e9b2c;
 
 margin: 0;
 font-size: 1rem;
@@ -26,4 +26,9 @@ h1, h2, h3, h4, h5, h6 {
 *:before,
 *:after {
     box-sizing: border-box;
+}
+
+.lok{
+
+
 }
