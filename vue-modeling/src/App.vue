@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import Modal from './components/Modal.vue';
+
 import Drawer from './components/Drawer.vue';
 import CardList from './components/CardList.vue'
 import Header from './components/Header.vue';
