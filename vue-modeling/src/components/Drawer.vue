@@ -24,7 +24,7 @@
             <b>990 р</b>
           </div>
 
-          <button disabled class="transition bg-lime-500 w-full rounded-xl py-3 text-white disabled:bg-slate-400 hover:bg-lime-600 active:bg-lime-700 cursor-pointer">
+          <button disabled class="mt-4 transition bg-lime-500 w-full rounded-xl py-3 text-white disabled:bg-slate-400 hover:bg-lime-600 active:bg-lime-700 cursor-pointer">
           Оформить заказ
         </button>
 
