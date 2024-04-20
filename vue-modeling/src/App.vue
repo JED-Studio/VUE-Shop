@@ -16,7 +16,7 @@
 
       <div class="relative">
         <img class="absolute left-4 top-3" src="/public/search.svg" alt="" />
-        <input class="border rounded-md py-2 pl-11 pr-4 outline-none focus:border-gray-400" type="text" placeholder="Поиск..."/>
+        <input @input="onChangeSearchInput" class="border rounded-md py-2 pl-11 pr-4 outline-none focus:border-gray-400" type="text" placeholder="Поиск..."/>
       </div>
     
     </div>
@@ -44,7 +44,7 @@ import Myhello from './components/Myhello.vue'
 const items = ref([])
 
 const filters = reactive({
-  sortBy:'',
+  sortBy:'title',
   serchQuery:'',
 })
 
@@ -54,23 +54,36 @@ const onChangeSelect = (event) => {
   filters.sortBy = event.target.value
 }
 
-onMounted(async() => {
-  try {
-   const {data} = await axios.get('https://098426db1591c9bb.mokky.dev/items')
-   items.value = data;
-  } catch (err){
-  console.log(err)}
-})
+const onChangeSearchInput = (event) => {
+  filters.serchQuery = event.target.value
+}
 
-watch(filters, async() => {
+
+const fetchItems = async() =>{
   try {
-   const {data} = await axios.get('https://098426db1591c9bb.mokky.dev/items?sortBy='+ filters.sortBy)
+
+    const params = {
+      sortBy:filters.sortBy
+    }
+
+    if(filters.serchQuery){
+params.title = `*${filters.serchQuery}*`;
+    }
+
+   const {data} = await axios.get(`https://098426db1591c9bb.mokky.dev/items`,{
+    params
+  })
+
    items.value = data;
   } catch (err){
   console.log(err)
 }
 
-})
+}
+
+onMounted(fetchItems)
+
+watch(filters,fetchItems)
 
 /*const items = [
     {
