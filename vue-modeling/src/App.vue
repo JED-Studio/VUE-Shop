@@ -8,7 +8,7 @@
     <div class="flex justify-between">
       <h2 class="text-3xl font-bold mb-8">Все модели</h2>
 <div class="flex gap-4">
-      <select @change="onChangeSelect" class="py-2 px-3 border rounded-md outline-none">
+      <select @change="onChangeSelect" class="py-2 px-3 h-11 border rounded-md outline-none">
         <option value="name">По названию</option>
         <option value="price">По цене (дешевые)</option>
         <option value="-price">По цене (дорогие)</option>
@@ -58,6 +58,19 @@ const onChangeSearchInput = (event) => {
   filters.serchQuery = event.target.value
 }
 
+const fetchFavorites = async() => {
+  try {
+
+const {data} = await axios.get(`https://098426db1591c9bb.mokky.dev/favorites`)
+
+items.value = data;
+} catch (err){
+console.log(err)
+}
+}
+
+
+
 
 const fetchItems = async() =>{
   try {
@@ -74,7 +87,12 @@ params.title = `*${filters.serchQuery}*`;
     params
   })
 
-   items.value = data;
+   items.value = data.map((obj)=>({
+    ...obj
+    isFavorite: false,
+    isAdded: false
+   }))
+
   } catch (err){
   console.log(err)
 }
