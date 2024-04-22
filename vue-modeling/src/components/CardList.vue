@@ -17,9 +17,9 @@ defineProps({
   :title="item.title" 
   :imageUrl="item.imageUrl" 
   :price="item.price" 
-  :isFavorite="false" 
+  :isFavorite="item.isFavorite" 
   :onClikAdd="onClikAdd" 
-  :isAdded="true"/>
+  />
   <Card />
   <Card />
   <Card />
