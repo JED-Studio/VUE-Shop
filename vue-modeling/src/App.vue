@@ -32,9 +32,8 @@
 </template>
 
 <script setup>
-import { onMounted, reactive, ref, watch} from 'vue';
+import { onMounted, reactive, ref, watch,provide} from 'vue';
 import axios from 'axios'
-
 import Drawer from './components/Drawer.vue';
 import CardList from './components/CardList.vue'
 import Header from './components/Header.vue';
@@ -73,7 +72,7 @@ items.value = items.value.map(item =>{
   return{
     ...item,
     isFavorite:true,
-    favoriteId: favorite.id,
+    favoriteId: favorite.id
   }
 
 })
@@ -82,8 +81,8 @@ console.log(err)
 }
 }
 
-const addToFavorite = async () => {
-   item.isFavorite = true
+const addToFavorite = async (item) => {
+   item.isFavorite = !item.isFavorite
    console.log(item)
 }
 
@@ -124,7 +123,7 @@ onMounted(async() => {
 
 watch(filters,fetchItems)
 
-provide("addToFavorite", addToFavorite);
+provide('addToFavorite', addToFavorite);
 
 /*const items = [
     {
