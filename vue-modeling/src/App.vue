@@ -82,7 +82,10 @@ console.log(err)
 }
 }
 
-
+const addToFavorite = async () => {
+   item.isFavorite = true
+   console.log(item)
+}
 
 
 const fetchItems = async() =>{
@@ -120,6 +123,8 @@ onMounted(async() => {
 })
 
 watch(filters,fetchItems)
+
+provide("addToFavorite", addToFavorite);
 
 /*const items = [
     {
