@@ -13,5 +13,5 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: '/VUE-SHOP/'
+  base: '/VUE-SHOP/assets/'
 })
